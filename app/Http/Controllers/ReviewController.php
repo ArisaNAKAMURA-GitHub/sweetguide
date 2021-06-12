@@ -85,7 +85,9 @@ class ReviewController extends Controller
      */
     public function edit($id)
     {
-        //
+        $review =review::find($id);
+
+        return view('reviews.edit',['review'=>$review]);
     }
 
     /**
@@ -97,7 +99,22 @@ class ReviewController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $review = Review::find($id);
+
+            $review -> store_id = $request -> store_id;
+            $review -> comment = $request -> comment;
+            $review -> user_id = Auth::id();
+            $review -> review = $request -> review;
+            $review -> charge = $request -> charge;
+            $review -> ate_thing = $request -> ate_thing;
+            $review -> category_id = $request -> category_id;
+            $review -> post_image = $request -> post_image;
+            if($request->is_published){
+                $review -> published_at = now();
+            }
+            $review -> save();
+
+            return view('reviews.cleate',compact('review'));
     }
 
     /**
