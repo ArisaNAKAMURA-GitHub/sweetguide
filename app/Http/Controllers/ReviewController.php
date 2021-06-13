@@ -85,7 +85,7 @@ class ReviewController extends Controller
      */
     public function edit($id)
     {
-        $review =review::find($id);
+        $review =Review::find($id);
 
         return view('reviews.edit',['review'=>$review]);
     }
@@ -114,7 +114,7 @@ class ReviewController extends Controller
             }
             $review -> save();
 
-            return view('reviews.cleate',compact('review'));
+            return view('reviews.create',compact('review'));
     }
 
     /**
