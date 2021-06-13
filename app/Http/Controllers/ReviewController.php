@@ -71,7 +71,7 @@ class ReviewController extends Controller
     {
         $review = Review::find($id);
     
-        return view('stores.show', ['review'=>$review]);
+        return view('reviews.show', ['review'=>$review]);
 
 
 
