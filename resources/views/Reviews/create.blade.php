@@ -176,7 +176,11 @@
                                 <button type="submit" class="btn overwrite">上書きして保存</button>
                             </div>
                             <div class="text-right">
+                                <form action="{{ route('reviews.destroy',$review->id)}}" method='post'>
+                                    @csrf 
+                                    @method('delete') 
                                 <button type="submit" class="btn delete">口コミを削除する</button>
+                                </form>
                             </div>
                             <div class="spacer"></div>
                             <div class="text-right">
