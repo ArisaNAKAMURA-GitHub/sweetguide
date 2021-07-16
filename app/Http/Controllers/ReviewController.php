@@ -116,7 +116,7 @@ class ReviewController extends Controller
         }
         
 
-        return view('Reviews.edit',['review' => $review, 'store'=>$store]);
+        return view('reviews.edit',['review' => $review, 'store'=>$store]);
     }
 
     /**
